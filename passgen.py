@@ -1,4 +1,5 @@
 from random import choice, randint, shuffle
+from sys import argv
 
 try:
     from pyperclip import copy
@@ -70,7 +71,7 @@ class PassGen():
             Результат печатает в консоль и сохраняет в буфер обмена.
         """
         PASSWORD = ''
-        LENGTH = length
+        LENGTH = int(length)
         LettersNumbers_80 = round((LENGTH / 100) * 80)
         SpecialChrctrs_20 = round((LENGTH / 100) * 20)
 
@@ -85,4 +86,7 @@ class PassGen():
 
 if __name__ == "__main__":
     P = PassGen()
-    P.randgen8020()
+    if len(argv) > 1:
+        P.lengthgen8020(argv[1])
+    else:
+        P.randgen8020()
