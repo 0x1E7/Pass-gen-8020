@@ -1,5 +1,4 @@
 from random import choice, randint, shuffle
-from os import system
 
 try:
     from pyperclip import copy
@@ -22,10 +21,6 @@ class PassGen():
         """
         self.LettersNumbers = 'abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
         self.SpecialChrctrs = '+-/*!&$#?=@<>'
-
-    def CopyClipboard(self, _varString: str) -> None:
-        command = 'echo ' + _varString.strip() + '| clip'
-        system(command)
 
     def StringShuffler(self, _varString: str) -> str:
         """
@@ -61,7 +56,7 @@ class PassGen():
 
         PASSWORD = self.StringShuffler(PASSWORD)
         
-        print(f"Пароль длиной {LENGTH} сгенерирован.\nВ нем {LettersNumbers_80} букв|цифр и {SpecialChrctrs_20} специальных символов.\nСкопирован в буфер обмена: {PASSWORD}")
+        print(f"Длина: {LENGTH} [{LettersNumbers_80} ABC | {SpecialChrctrs_20} !@#]\nСкопирован: {PASSWORD}")
         copy(PASSWORD)
 
     def lengthgen8020(self, length: int) -> None:
@@ -91,7 +86,7 @@ class PassGen():
         shuffle(_strlist)
         PASSWORD = ''.join(_strlist)
         
-        print(f"Пароль длиной {LENGTH} сгенерирован.\nВ нем {LettersNumbers_80} букв|цифр и {SpecialChrctrs_20} специальных символов.\nСкопирован в буфер обмена: {PASSWORD}")
+        print(f"Длина: {LENGTH} [{LettersNumbers_80} ABC | {SpecialChrctrs_20} !@#]\nСкопирован: {PASSWORD}")
         copy(PASSWORD)
 
 if __name__ == "__main__":
