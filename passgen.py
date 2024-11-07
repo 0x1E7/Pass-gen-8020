@@ -1,5 +1,12 @@
 from random import choice, randint, shuffle
-from pyperclip import copy
+from os import system
+
+try:
+    from pyperclip import copy
+except ImportError as exc:
+    _ = (str(exc).rsplit(" ")[-1:][0]).replace("'", "")
+    _ = input(f"Не найден модуль {_}\nТы можешь попробовать его установить командой: python -m pip install {_}\n\nДля завершения программы нажми Enter... ")
+    exit(0)
 
 class PassGen():
     def __init__(self):
@@ -15,6 +22,10 @@ class PassGen():
         """
         self.LettersNumbers = 'abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
         self.SpecialChrctrs = '+-/*!&$#?=@<>'
+
+    def CopyClipboard(self, _varString: str) -> None:
+        command = 'echo ' + _varString.strip() + '| clip'
+        system(command)
 
     def StringShuffler(self, _varString: str) -> str:
         """
@@ -50,7 +61,7 @@ class PassGen():
 
         PASSWORD = self.StringShuffler(PASSWORD)
         
-        print(f"Пароль длиной {LENGTH} сгенерирован.\nВ нем {LettersNumbers_80} букв/цифр и {SpecialChrctrs_20} символов.\nСкопирован в буфер обмена: {PASSWORD}")
+        print(f"Пароль длиной {LENGTH} сгенерирован.\nВ нем {LettersNumbers_80} букв|цифр и {SpecialChrctrs_20} специальных символов.\nСкопирован в буфер обмена: {PASSWORD}")
         copy(PASSWORD)
 
     def lengthgen8020(self, length: int) -> None:
@@ -80,7 +91,7 @@ class PassGen():
         shuffle(_strlist)
         PASSWORD = ''.join(_strlist)
         
-        print(f"Пароль длиной {LENGTH} сгенерирован.\nВ нем {LettersNumbers_80} букв/цифр и {SpecialChrctrs_20} символов.\nСкопирован в буфер обмена: {PASSWORD}")
+        print(f"Пароль длиной {LENGTH} сгенерирован.\nВ нем {LettersNumbers_80} букв|цифр и {SpecialChrctrs_20} специальных символов.\nСкопирован в буфер обмена: {PASSWORD}")
         copy(PASSWORD)
 
 if __name__ == "__main__":
