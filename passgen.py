@@ -50,10 +50,8 @@ class PassGen():
 
         for _ in range(LettersNumbers_80):
             PASSWORD += choice(self.LettersNumbers)
-
         for _ in range(SpecialChrctrs_20):
             PASSWORD += choice(self.SpecialChrctrs)
-
         PASSWORD = self.StringShuffler(PASSWORD)
         
         print(f"LENGTH: {LENGTH} [{LettersNumbers_80} ABC | {SpecialChrctrs_20} !@#]\nCOPIED: {PASSWORD}")
@@ -78,13 +76,9 @@ class PassGen():
 
         for _ in range(LettersNumbers_80):
             PASSWORD += choice(self.LettersNumbers)
-
         for _ in range(SpecialChrctrs_20):
             PASSWORD += choice(self.SpecialChrctrs)
-
-        _strlist = list(PASSWORD)
-        shuffle(_strlist)
-        PASSWORD = ''.join(_strlist)
+        PASSWORD = self.StringShuffler(PASSWORD)
         
         print(f"LENGTH: {LENGTH} [{LettersNumbers_80} ABC | {SpecialChrctrs_20} !@#]\nCOPIED: {PASSWORD}")
         copy(PASSWORD)
