@@ -56,7 +56,7 @@ class PassGen():
 
         PASSWORD = self.StringShuffler(PASSWORD)
         
-        print(f"Длина: {LENGTH} [{LettersNumbers_80} ABC | {SpecialChrctrs_20} !@#]\nСкопирован: {PASSWORD}")
+        print(f"LENGTH: {LENGTH} [{LettersNumbers_80} ABC | {SpecialChrctrs_20} !@#]\nCOPIED: {PASSWORD}")
         copy(PASSWORD)
 
     def lengthgen8020(self, length: int) -> None:
@@ -86,7 +86,7 @@ class PassGen():
         shuffle(_strlist)
         PASSWORD = ''.join(_strlist)
         
-        print(f"Длина: {LENGTH} [{LettersNumbers_80} ABC | {SpecialChrctrs_20} !@#]\nСкопирован: {PASSWORD}")
+        print(f"LENGTH: {LENGTH} [{LettersNumbers_80} ABC | {SpecialChrctrs_20} !@#]\nCOPIED: {PASSWORD}")
         copy(PASSWORD)
 
 if __name__ == "__main__":
